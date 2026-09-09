@@ -12,7 +12,6 @@ for (let index = 0; index < files.length; index++) {
 	const fileName = files[index];
 	const fileContent = fs.readFileSync(`./files/${fileName}`, "utf8");
 	const words = fileContent.trim().toLowerCase().split(/\W+/).filter(Boolean);
-	const chunks = [];
 
 	if (queryArray.length === 1) {
 		for (let index = 0; index < words.length; index++) {
@@ -43,3 +42,5 @@ if (results.length === 0) {
 		console.log(result.fileName, "found " + result.occurences + " times"),
 	);
 }
+
+
