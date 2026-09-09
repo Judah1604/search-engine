@@ -1,0 +1,2 @@
+Search engines use an inverted index to find documents quickly.
+Without an index, searching would require scanning every file.
