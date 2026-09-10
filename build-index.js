@@ -15,39 +15,17 @@ for (let index = 0; index < files.length; index++) {
 			const wordItem = fileIndex[word];
 
 			if (fileName in wordItem.files) {
-				wordItem.files[fileName]++;
+				wordItem.files[fileName].push(i);
 			} else {
-				wordItem.files[fileName] = 1;
+				wordItem.files[fileName] = [i];
 			}
 		} else {
 			fileIndex[word] = { files: {} };
-			fileIndex[word].files[fileName] = 1;
+			fileIndex[word].files[fileName] = [i];
 		}
-
-        // if (queryArray.length === 1) {
-		// 	for (let index = 0; index < words.length; index++) {
-		// 		if (words[index] === query) {
-		// 			occurences++;
-		// 		}
-		// 	}
-		// } else {
-		// 	for (
-		// 		let index = 0;
-		// 		index < words.length - queryArray.length;
-		// 		index++
-		// 	) {
-		// 		let chunk = words
-		// 			.slice(index, index + queryArray.length)
-		// 			.join(" ");
-		// 		if (chunk === query) {
-		// 			occurences++;
-		// 		}
-		// 	}
-		// }
-
 	}
 }
 
 fs.writeFileSync('./fileIndex.json', JSON.stringify(fileIndex))
 
-console.log(fileIndex);
+// console.log(fileIndex);
