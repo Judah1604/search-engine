@@ -1,0 +1,2 @@
+Modern computers may struggle with certain calculations.
+Meanwhile, quantum computers are a completely different technology built for other tasks.

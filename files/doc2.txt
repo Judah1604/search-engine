@@ -1,3 +1,2 @@
 The history of computing traces back to mechanical calculators.
 Modern computers use transistors instead of mechanical parts.
-use qubits

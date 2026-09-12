@@ -31,13 +31,12 @@ if (queryArray.length > 1) {
 	for (let index = 0; index < sharedFiles.length; index++) {
 		let count = 0;
 		for (let i = 0; i < queryArray.length - 1; i++) {
-			let wordPos = fileIndex[queryArray[i]].files[sharedFiles[index]];
-			let nextWordPos =
-				fileIndex[queryArray[i + 1]].files[sharedFiles[index]];
+			let wordPos = fileIndex[queryArray[0]].files[sharedFiles[index]];
 			for (let posIndex = 0; posIndex < wordPos.length; posIndex++) {
-				if (nextWordPos.includes(wordPos[posIndex] + 1)) {
-					count++;
-				}
+
+				// if (nextWordPos.includes(wordPos[posIndex] + 1)) {
+				// 	count++;
+				// }
 			}
 		}
         console.log(sharedFiles[index], "found", count, "times");
