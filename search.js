@@ -30,16 +30,33 @@ if (queryArray.length > 1) {
 	}
 	for (let index = 0; index < sharedFiles.length; index++) {
 		let count = 0;
-		for (let i = 0; i < queryArray.length - 1; i++) {
-			let wordPos = fileIndex[queryArray[0]].files[sharedFiles[index]];
-			for (let posIndex = 0; posIndex < wordPos.length; posIndex++) {
+		const firstWordPositions =
+			fileIndex[queryArray[0]].files[sharedFiles[index]];
 
-				if (nextWordPos.includes(wordPos[posIndex] + 1)) {
-					count++;
+		for (let p = 0; p < firstWordPositions.length; p++) {
+			const startPos = firstWordPositions[p];
+			let isFullMatch = true;
+
+			for (let i = 1; i < queryArray.length; i++) {
+				const nextWordPositions =
+					fileIndex[queryArray[i]].files[sharedFiles[index]];
+				if (
+					!nextWordPositions ||
+					!nextWordPositions.includes(startPos + i)
+				) {
+					isFullMatch = false;
+					break;
 				}
 			}
+
+			if (isFullMatch) {
+				count++;
+			}
 		}
-        console.log(sharedFiles[index], "found", count, "times");
+
+		if (count > 0) {
+			console.log(sharedFiles[index], "found", count, "times");
+		}
 	}
 } else {
 	const fileArray = Object.entries(sharedFilesSingleQuery);
