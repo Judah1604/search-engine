@@ -34,9 +34,9 @@ if (queryArray.length > 1) {
 			let wordPos = fileIndex[queryArray[0]].files[sharedFiles[index]];
 			for (let posIndex = 0; posIndex < wordPos.length; posIndex++) {
 
-				// if (nextWordPos.includes(wordPos[posIndex] + 1)) {
-				// 	count++;
-				// }
+				if (nextWordPos.includes(wordPos[posIndex] + 1)) {
+					count++;
+				}
 			}
 		}
         console.log(sharedFiles[index], "found", count, "times");
